@@ -9,7 +9,7 @@ from typing import Literal, TypedDict
 import os
 
 # Set up the environment variables with the GROQ API key
-os.environ["GROQ_API_KEY"] = "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"  # Replace with your actual API key
+os.environ["GROQ_API_KEY"] = "YOUR_GROQ_API_KEY"
 
 # Initialize the Llama3 model with GROQ as provider
 llm = init_chat_model("llama3-8b-8192",model_provider="groq")
@@ -94,8 +94,6 @@ app=Flask(__name__)
 def home():
     return render_template('home.html')
 
-# Submit method makes sure we can extract the review sent by the user from the form and process it if method is POST. After processing it redirects you to response page.
-# If the method is not POST, it redirects you to the home page again clearing the form.
 @app.route('/submit',methods=['POST','GET'])
 def submit():
     if request.method=="POST":
